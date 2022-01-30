@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%load crispy_forms_tags %} 
+
+{% load widget_tweaks %}
+{% block content %}
+
+<main>
+	<div class="box">
+	  <div class="inner-box">
+		<div class="forms-wrap">
+		 
+
+		  <form method="POST" autocomplete="off" class="sign-in-form">
+			{% csrf_token %}
+			
+			<div class="logo">
+			   <!-- <img src="./img/logo.png" alt="easyclass" /> -->
+			   <h4>DiviLyser</h4>
+			</div>
+
+			<div class="heading">
+			  <h2>Log In</h2>
+			  
+			  </div>
+
+			<div class="actual-form">
+				<div class="input-wrap">
+					{{ form.username|attr:"autocomplete: on"|append_attr:"id :tags"|append_attr:"class:input-field"|append_attr:"placeholder : Username" }}
+					
+				  </div>
+			
+			  
+
+			  <div class="input-wrap">
+				{{ form.password|attr:"autocomplete: on"|append_attr:"id :tags"|append_attr:"class:input-field"|append_attr:"placeholder : Password" }}
+				
+			  </div>
+
+
+
+			  
+
+			  
+			  <button type="submit" class="sign-btn">Sign in</button>
+
+			  
+			</div>
+		  </form>
+		</div>
+
+		<div class="carousel">
+		  <div class="images-wrapper">
+			<!-- <img src="./img/image1.png" class="image img-1 show" alt="" />
+			<img src="./img/image2.png" class="image img-2" alt="" />
+			<img src="./img/image3.png" class="image img-3" alt="" /> -->
+		  </div>
+
+		  <div class="text-slider">
+			<div class="text-wrap">
+			  <div class="text-group">
+				<h2>Get your dividend alert now</h2>
+			   
+			  </div>
+			</div>
+
+			<div class="bullets">
+			  <span class="active" data-value="1"></span>
+			  
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </main>
+
+  {% endblock %}

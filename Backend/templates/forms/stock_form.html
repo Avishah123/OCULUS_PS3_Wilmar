@@ -1,0 +1,48 @@
+
+
+{%load crispy_forms_tags %} 
+
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AutoComplete</title>
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+	</script>
+	
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+	</script>
+	
+	<link href=
+"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+		rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<h1>Welcome to GFG</h1>
+	<form method="POST" autocomplete="on">
+        {% csrf_token %}
+        
+        
+        {{ form.stock_ticker|attr:"autocomplete: on"|append_attr:"id :tags"|append_attr:"placeholder : First Name" }}
+        
+        <button type="submit" class="btn btn-primary">Update</button>
+        <script>
+            $( function() {
+                var availableTags = [
+                    {% for language in languages %}
+                        "{{language.stock_ticker}}",
+                    {% endfor %}
+                ];
+                $( "#tags" ).autocomplete({
+                source: availableTags
+                });
+            } );
+            </script>
+        </form>
+
+	
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%load crispy_forms_tags %} 
+
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="wrapper">
+    <!-- <div class="header">DASHBOARD</div> -->
+    <div class="container " style="height:20vh;margin-top:30px;">
+        <h2 class="text-center">Dashboard</h2><br>
+        <div class="row">
+            <div class="col-md-12">
+                
+        </div>
+        </div>
+    </div>
+    {% for i in stock_ticker %}
+
+    <div class="cards_wrap">
+        <div class="card_item">
+            <div class="card_inner">
+                <!-- <img src="black_panther.png"> -->
+                <div class="role_name">{{i.stock_ticker}}</div>
+                
+                <div class="film">Ex-Dividend Record Date:</div>
+                <div class="film">Ex-Dividend Announcement Date:</div>
+                <div class="film">Dividend %:</div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% endfor %}
+        
+        
+        
+        
+        
+       
+        
+
+  {% endblock %}
